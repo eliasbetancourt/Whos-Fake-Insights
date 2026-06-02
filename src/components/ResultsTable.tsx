@@ -126,8 +126,8 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results, showNotice = false
         }}
       >
         {showNotice && <>
-          ⚠️ Broken links point to hidden accounts that you follow that were likely deleted or deactivated.
-          <br /> You can remove them from this list as they are not in your true following list.
+          ⚠️ Broken link? The account was likely deleted, deactivated, or renamed.
+          <br /> Use the Remove button to clean them off your list.
         </>}
       </p>
       <h3>Analysis Results</h3>
@@ -316,6 +316,8 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results, showNotice = false
                         <img
                           src={crackedRows.has(user.username) ? "/crackedfollowingbutton.png" : "/folllowingbutton.png"}
                           alt="Unfollow"
+                          loading="lazy"
+                          decoding="async"
                           style={{
                             height: 100,
                             width: "auto",
@@ -332,6 +334,8 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results, showNotice = false
                         <img
                           src="/folllowingbutton.png"
                           alt="Unfollow (link unavailable)"
+                          loading="lazy"
+                          decoding="async"
                           style={{
                             height: 100,
                             width: "auto",
@@ -359,6 +363,8 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results, showNotice = false
                       src="/removebutton.png"
                       alt="Remove"
                       onClick={() => handleRemoveUser(user.username)}
+                      loading="lazy"
+                      decoding="async"
                       style={{
                         height: 44,
                         width: "auto",

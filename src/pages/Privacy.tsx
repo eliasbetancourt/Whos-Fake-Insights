@@ -2,7 +2,8 @@ import PageLayout, {
   paragraphStyle,
   sectionHeadingStyle,
   inlineLinkStyle,
-} from "./PageLayout";
+} from "../components/PageLayout";
+import Seo from "../components/Seo";
 
 /**
  * Privacy Policy page — static content. External links open in a new tab with
@@ -11,7 +12,13 @@ import PageLayout, {
  */
 export default function Privacy() {
   return (
-    <PageLayout title="Privacy Policy">
+    <>
+      <Seo
+        title="Privacy Policy — WhosFake Insights"
+        description="How WhosFake Insights handles your data: everything is processed locally in your browser and never uploaded, stored, or shared."
+        path="/privacy"
+      />
+      <PageLayout title="Privacy Policy">
       <p style={{ ...paragraphStyle, color: "#888", fontSize: "0.95rem" }}>
         Last updated: May 24, 2026
       </p>
@@ -76,6 +83,7 @@ export default function Privacy() {
         </a>
         .
       </p>
-    </PageLayout>
+      </PageLayout>
+    </>
   );
 }

@@ -1,11 +1,18 @@
-import PageLayout, { paragraphStyle } from "./PageLayout";
+import PageLayout, { paragraphStyle } from "../components/PageLayout";
+import Seo from "../components/Seo";
 
 /**
  * About page — static informational content. No user data is processed here.
  */
 export default function About() {
   return (
-    <PageLayout title="About WhosFake Insights">
+    <>
+      <Seo
+        title="About WhosFake Insights"
+        description="WhosFake Insights is a free, privacy-first tool that shows which Instagram accounts don't follow you back — all processed locally in your browser."
+        path="/about"
+      />
+      <PageLayout title="About WhosFake Insights">
       <p style={paragraphStyle}>
         WhosFake Insights is a free tool that helps Instagram users discover who
         isn't following them back. We built this web app because checking your followers
@@ -26,6 +33,7 @@ export default function About() {
         WhosFake Insights is an independent tool and is not affiliated with,
         endorsed by, or connected to Instagram or Meta Platforms, Inc.
       </p>
-    </PageLayout>
+      </PageLayout>
+    </>
   );
 }

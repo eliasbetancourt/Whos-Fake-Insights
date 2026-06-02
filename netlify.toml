@@ -31,6 +31,9 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     # Deny powerful browser APIs the app does not use.
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()"
+    # Explicitly allow search engines to index and follow (reinforces the
+    # <meta name="robots"> tag; applies to every route, incl. the SPA fallback).
+    X-Robots-Tag = "index, follow"
     # Isolate this origin from cross-origin window references.
     Cross-Origin-Opener-Policy = "same-origin"
     # Limit what other origins may embed our resources.

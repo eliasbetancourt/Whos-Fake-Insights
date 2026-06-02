@@ -16,68 +16,75 @@ interface PageLayoutProps {
 
 export default function PageLayout({ title, children }: PageLayoutProps) {
   return (
+    /* Neutral white shell — no gradient here. The gradient is scoped only to
+       the content band above the footer so the dark footer background sits
+       flush against white with no coloured bleed above or below it. */
     <div
       style={{
         fontFamily: "system-ui, sans-serif",
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        minHeight: "100vh",
-        height: "auto",
+        background: "#ffffff",
         color: "#333",
-        width: "100vw",
+        width: "100%",
         minWidth: 0,
-        position: "relative",
-        overflowX: "hidden",
       }}
     >
+      {/* Gradient content band — back-link + white card only. */}
       <div
         style={{
-          maxWidth: 800,
-          margin: "0 auto",
-          padding: "4vw 2vw",
+          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
           width: "100%",
-          boxSizing: "border-box",
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
+          padding: "4vw 0 6vw",
         }}
       >
-        <div style={{ marginBottom: "2vw", paddingTop: "1vw" }}>
-          <Link
-            to="/"
-            style={{
-              color: "rgba(255,255,255,0.95)",
-              textDecoration: "none",
-              fontWeight: 600,
-              fontSize: "1rem",
-            }}
-          >
-            ← Back to Home
-          </Link>
-        </div>
         <div
           style={{
-            background: "white",
-            borderRadius: 24,
-            boxShadow: "0 20px 60px rgba(0,0,0,0.1)",
-            padding: "clamp(24px, 4vw, 48px)",
+            maxWidth: 800,
+            margin: "0 auto",
+            padding: "0 2vw",
             width: "100%",
             boxSizing: "border-box",
           }}
         >
-          <h1
+          <div style={{ marginBottom: "2vw", paddingTop: "1vw" }}>
+            <Link
+              to="/"
+              style={{
+                color: "rgba(255,255,255,0.95)",
+                textDecoration: "none",
+                fontWeight: 600,
+                fontSize: "1rem",
+              }}
+            >
+              ← Back to Home
+            </Link>
+          </div>
+          <div
             style={{
-              fontSize: "2rem",
-              color: "#333",
-              marginBottom: "1.5rem",
-              fontWeight: 700,
+              background: "white",
+              borderRadius: 24,
+              boxShadow: "0 20px 60px rgba(0,0,0,0.1)",
+              padding: "clamp(24px, 4vw, 48px)",
+              width: "100%",
+              boxSizing: "border-box",
             }}
           >
-            {title}
-          </h1>
-          {children}
+            <h1
+              style={{
+                fontSize: "2rem",
+                color: "#333",
+                marginBottom: "1.5rem",
+                fontWeight: 700,
+              }}
+            >
+              {title}
+            </h1>
+            {children}
+          </div>
         </div>
-        <Footer />
       </div>
+      {/* Footer is outside the gradient band — its dark background sits
+          flush against the white shell with no coloured gap. */}
+      <Footer />
     </div>
   );
 }

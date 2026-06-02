@@ -7,9 +7,13 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* This app controls its own backgrounds per-page/section. A neutral white
+     root prevents any stray dark or coloured pixels from bleeding around
+     page components. Pages that need the purple gradient apply it explicitly
+     on their own wrapper elements. */
+  color-scheme: light;
+  color: #213547;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,11 +30,19 @@ a:hover {
   color: #535bf2;
 }
 
+html,
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  padding: 0;
+  width: 100%;
   min-width: 320px;
+  min-height: 100vh;
+}
+
+/* The app root must fill the full viewport width; pages set their own
+   max-width on inner containers and center them with margin: 0 auto. */
+#root {
+  width: 100%;
   min-height: 100vh;
 }
 
@@ -58,15 +70,8 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Light-mode overrides are no longer needed — the app is light-only.
+   Button colours remain explicit here for non-page-level elements. */
+button {
+  background-color: #f9f9f9;
 }

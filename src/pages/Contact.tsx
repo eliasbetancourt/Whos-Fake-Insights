@@ -1,11 +1,18 @@
-import PageLayout, { paragraphStyle, inlineLinkStyle } from "./PageLayout";
+import PageLayout, { paragraphStyle, inlineLinkStyle } from "../components/PageLayout";
+import Seo from "../components/Seo";
 
 /**
  * Contact page — static content with a mailto link.
  */
 export default function Contact() {
   return (
-    <PageLayout title="Contact Us">
+    <>
+      <Seo
+        title="Contact Us — WhosFake Insights"
+        description="Questions, feedback, or found a bug? Get in touch with the WhosFake Insights team."
+        path="/contact"
+      />
+      <PageLayout title="Contact Us">
       <p style={paragraphStyle}>
         Have a question, found a bug, or want to share feedback? We'd love to hear
         from you.
@@ -19,6 +26,7 @@ export default function Contact() {
       <p style={{ ...paragraphStyle, marginBottom: 0 }}>
         We aim to respond to all messages within 2–3 business days.
       </p>
-    </PageLayout>
+      </PageLayout>
+    </>
   );
 }

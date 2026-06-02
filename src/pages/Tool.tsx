@@ -18,14 +18,13 @@ import JSZip from "jszip";
 import {
   analyzeFollowersAndFollowing,
   InvalidInstagramDataError,
-} from "./analysis";
-import HowToSteps from "./components/HowToSteps";
-import FileList from "./components/FileList";
-import Header from "./components/Header";
-import ProgressBar from "./components/ProgressBar";
-import ResultsTable from "./components/ResultsTable";
-import VideoSection from "./components/VideoSection";
-import Footer from "./components/Footer";
+} from "../analysis";
+import FileList from "../components/FileList";
+import NavBar from "../components/NavBar";
+import ProgressBar from "../components/ProgressBar";
+import ResultsTable from "../components/ResultsTable";
+import Footer from "../components/Footer";
+import Seo from "../components/Seo";
 
 // ---------------------------------------------------------------------------
 // File-level safety limits.  These are intentionally generous for real-world
@@ -200,7 +199,7 @@ async function getAllFilesFromDataTransferItems(items: DataTransferItemList): Pr
 // Component
 // ===========================================================================
 
-export default function WhosFakeApp() {
+export default function Tool() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [dragOver, setDragOver] = useState(false);
   const [processing, setProcessing] = useState(false);
@@ -497,6 +496,7 @@ export default function WhosFakeApp() {
   // -----------------------------------------------------------------------
 
   return (
+    <>
     <div
       style={{
         fontFamily: "system-ui, sans-serif",
@@ -510,6 +510,12 @@ export default function WhosFakeApp() {
         overflowX: "clip",
       }}
     >
+      <Seo
+        title="Instagram Unfollower Checker — WhosFake Insights"
+        description="Upload your Instagram data export and instantly see who isn't following you back. 100% private — all processing happens in your browser."
+        path="/tool"
+      />
+      <NavBar />
       <div
         style={{
           maxWidth: 1200,
@@ -520,7 +526,30 @@ export default function WhosFakeApp() {
           minHeight: "100vh",
         }}
       >
-        <Header />
+        <div style={{ textAlign: "center", marginBottom: "2vw", paddingTop: "3vw" }}>
+          <h1
+            style={{
+              color: "white",
+              fontSize: "clamp(1.9rem, 5vw, 3rem)",
+              fontWeight: 800,
+              marginBottom: 12,
+              textShadow: "0 2px 12px rgba(0,0,0,0.25)",
+            }}
+          >
+            Instagram Unfollower Checker
+          </h1>
+          <p
+            style={{
+              color: "rgba(255,255,255,0.9)",
+              fontSize: "clamp(1.02rem, 2.5vw, 1.2rem)",
+              maxWidth: 620,
+              margin: "0 auto",
+              lineHeight: 1.6,
+            }}
+          >
+            Upload your Instagram data export to see who isn't following you back.
+          </p>
+        </div>
         <div
           style={{
             background: "white",
@@ -654,7 +683,7 @@ export default function WhosFakeApp() {
                 <span style={{ background: '#e0e7ff', color: '#4338ca', borderRadius: 8, padding: '4px 14px', fontSize: '0.8rem', fontWeight: 700, letterSpacing: 1 }}>PREVIEW — Upload your file to see real results</span>
               </div>
               <ResultsTable results={{
-                summary: { totalFollowers: 69, totalFollowing: 42, unfollowers: 3 },
+                summary: { totalFollowers: 73, totalFollowing: 76, unfollowers: 3 },
                 unfollowers: [
                   { username: 'example.user1', profileUrl: 'instagram.com/example.user1', timestamp: 1700000000 },
                   { username: 'example.user2', profileUrl: 'instagram.com/example.user2', timestamp: 1710000000 },
@@ -664,10 +693,9 @@ export default function WhosFakeApp() {
             </div>
           )}
         </div>
-        <VideoSection />
-        <HowToSteps />
-        <Footer />
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

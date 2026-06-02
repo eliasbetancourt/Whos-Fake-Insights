@@ -9,20 +9,27 @@
       ("Mobile Code") and the OWASP Secure Headers Project.
 
         default-src 'self'         Block everything not explicitly allowed below.
-        script-src  'self'         Only first-party (Vite-bundled) JS may execute.
-                                   No inline scripts, no eval, no remote CDNs.
+        script-src  'self' + Google AdSense
+                                   First-party (Vite-bundled) JS plus the Google
+                                   AdSense loader (pagead2.googlesyndication.com,
+                                   adservice.google.com, googleads.g.doubleclick.net).
+                                   No inline scripts and no eval anywhere.
         style-src   'self' 'unsafe-inline'
                                    React's `style={…}` prop applies inline styles
                                    at runtime; 'unsafe-inline' is required for
                                    the current UI. (Style-based XSS is a much
                                    smaller surface than script-src.)
-        img-src     'self' data: https://i.ytimg.com https://*.ytimg.com
-                                   Local images + YouTube thumbnails.
+        img-src     'self' data: + YouTube thumbnails + AdSense pixels
+                                   Local images, YouTube thumbnails (i.ytimg.com),
+                                   and Google ad image/tracking domains.
         font-src    'self'         Self-hosted fonts only.
-        connect-src 'self'         Block all outbound XHR/fetch — the app is
-                                   purely client-side and never phones home.
-        frame-src   https://www.youtube.com https://www.youtube-nocookie.com
-                                   Tutorial videos only; nothing else may iframe.
+        connect-src 'self' + AdSense
+                                   The app never sends USER DATA off-device; the
+                                   only allowed outbound calls are the AdSense
+                                   loader's own requests (pagead2 / adservice).
+        frame-src   YouTube + AdSense frames
+                                   Tutorial videos (youtube[-nocookie].com) and
+                                   the AdSense ad iframes; nothing else may iframe.
         media-src   'self'         No external video/audio.
         object-src  'none'         Block <object>/<embed>/Flash entirely.
         base-uri    'self'         Prevent <base> tag injection attacks.
@@ -43,16 +50,48 @@
   <link rel="shortcut icon" href="/favicon/favicon.ico" />
   <link rel="manifest" href="/favicon/site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="WhosFake — find which Instagram accounts don't follow you back. Your data never leaves your browser." />
-  <!-- Open Graph / social link previews -->
+  <!-- Let search engines index and follow. (Reinforced by the X-Robots-Tag
+       response header in netlify.toml.) -->
+  <meta name="robots" content="index, follow" />
+  <!--
+      NOTE: the page title and meta description are set PER PAGE at runtime by
+      React 19's native metadata (see src/components/Seo.tsx), so every route
+      gets a unique, descriptive title and description. The static title below is
+      the no-JS / first-paint fallback for the homepage; React replaces it on
+      load. We deliberately ship NO static meta-description tag here: React
+      appends per-page descriptions after any static one, so a static copy would
+      win site-wide and clobber the per-route descriptions.
+  -->
+  <!-- Open Graph / social link previews (homepage baseline; JS-less scrapers
+       are served index.html for every SPA route, so these represent the site). -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://whosfakeinsights.com/" />
   <meta property="og:title" content="WhosFake Insights — Instagram Unfollower Analyzer" />
   <meta property="og:description"
     content="WhosFake — find which Instagram accounts don't follow you back. Your data never leaves your browser." />
   <meta property="og:image" content="https://whosfakeinsights.com/logo.png" />
+  <!-- Twitter / X large-image card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WhosFake Insights — Instagram Unfollower Analyzer" />
+  <meta name="twitter:description"
+    content="WhosFake — find which Instagram accounts don't follow you back. Your data never leaves your browser." />
+  <meta name="twitter:image" content="https://whosfakeinsights.com/logo.png" />
   <title>WhosFake Insights — Instagram Unfollower Analyzer</title>
+  <!-- Schema.org structured data: WebSite (enables sitelinks search box). -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "WhosFake Insights",
+      "url": "https://whosfakeinsights.com",
+      "description": "Free Instagram unfollower tracker. Find out who isn't following you back.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://whosfakeinsights.com/blog?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1050314305167679"
     crossorigin="anonymous"></script>
 </head>
