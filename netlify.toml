@@ -58,6 +58,30 @@
 # real static assets (/assets/*, images, etc.) are served normally and only
 # unknown paths fall through to the React router.
 # ---------------------------------------------------------------------------
+# WordPress/CMS bot probe traps — redirect before the SPA catch-all can match.
+# Bots scanning for unpatched WordPress installs will get a 301 to / instead
+# of a 200 with the React app, making the probes visibly unsuccessful.
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-login.php"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wordpress/*"
+  to = "/"
+  status = 301
+
+# SPA catch-all — MUST remain last so the bot rules above take priority.
 [[redirects]]
   from = "/*"
   to = "/index.html"

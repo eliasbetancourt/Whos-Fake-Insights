@@ -122,7 +122,7 @@ export default function Footer() {
             }}
           >
             The free, private way to see who isn't following you back on
-            Instagram — all in your browser.
+            Instagram. All in your browser.
           </p>
           <ExtLink href="https://instagram.com/whosfakeinsights">
             @whosfakeinsights

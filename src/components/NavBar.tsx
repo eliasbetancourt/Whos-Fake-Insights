@@ -6,8 +6,8 @@
  *   • Links: Home, Tool, Blog, Tutorial
  *   • CTA button "Check Unfollowers" → /tool
  *   • Hamburger menu under 768px
- *   • transparentOnTop: starts transparent over the homepage hero, turns
- *     solid white (with shadow) once the user scrolls.
+ *   • On "/" only: starts transparent over the hero, turns solid white on
+ *     scroll. On every other route the bar is white immediately.
  */
 
 import React, { useEffect, useState } from "react";
@@ -22,24 +22,19 @@ const NAV_LINKS: { label: string; to: string }[] = [
   { label: "Tutorial", to: "/tutorial" },
 ];
 
-interface NavBarProps {
-  /** When true the bar overlays the hero transparently until the user scrolls. */
-  transparentOnTop?: boolean;
-}
-
-export default function NavBar({ transparentOnTop = false }: NavBarProps) {
+export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Transparent-on-top on every page — all pages have a purple hero behind the navbar.
   useEffect(() => {
-    if (!transparentOnTop) return;
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [transparentOnTop]);
+  }, []);
 
   useEffect(() => {
     const onResize = () => {
@@ -57,7 +52,7 @@ export default function NavBar({ transparentOnTop = false }: NavBarProps) {
     setMenuOpen(false);
   }, [location.pathname]);
 
-  const solid = !transparentOnTop || scrolled;
+  const solid = scrolled;
   const textColor = solid ? "#374151" : "rgba(255,255,255,0.95)";
 
   const linkStyle: React.CSSProperties = {
@@ -81,7 +76,7 @@ export default function NavBar({ transparentOnTop = false }: NavBarProps) {
   return (
     <header
       style={{
-        position: transparentOnTop ? "fixed" : "sticky",
+        position: "fixed",
         top: 0,
         left: 0,
         right: 0,

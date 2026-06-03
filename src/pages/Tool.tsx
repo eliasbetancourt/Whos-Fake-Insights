@@ -673,8 +673,9 @@ export default function Tool() {
           {processing && <ProgressBar progress={progress} progressText={progressText} />}
           {results && <ResultsTable results={results} showNotice={true} />}
           {!results && !processing && (
-            <div style={{ marginTop: '3vw', opacity: 0.6, pointerEvents: 'none', userSelect: 'none' }}>
-              <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+            <div style={{ marginTop: '3vw', opacity: 0.6 }}>
+              {/* Label area — not interactive */}
+              <div style={{ textAlign: 'center', marginBottom: '1rem', pointerEvents: 'none', userSelect: 'none' }}>
                 <p style={{ textAlign: 'center', color: '#888', fontSize: '0.85rem', marginBottom: '1.5vw' }}>
                   This is a preview of the results table. Upload your Instagram data to see real results!
                   <br />
@@ -682,6 +683,7 @@ export default function Tool() {
                 </p>
                 <span style={{ background: '#e0e7ff', color: '#4338ca', borderRadius: 8, padding: '4px 14px', fontSize: '0.8rem', fontWeight: 700, letterSpacing: 1 }}>PREVIEW — Upload your file to see real results</span>
               </div>
+              {/* Table keeps pointer-events so horizontal scroll works on mobile */}
               <ResultsTable results={{
                 summary: { totalFollowers: 73, totalFollowing: 76, unfollowers: 3 },
                 unfollowers: [

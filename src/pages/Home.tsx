@@ -122,7 +122,7 @@ export default function Home() {
         description="See who isn't following you back on Instagram — free, private, and 100% in your browser. No login, no password, and your data never leaves your device."
         path="/"
       />
-      <NavBar transparentOnTop />
+      <NavBar />
 
       {/* ----------------------------------------------------------------- */}
       {/* Hero */}
