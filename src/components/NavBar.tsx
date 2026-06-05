@@ -18,8 +18,8 @@ const GRADIENT = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
 const NAV_LINKS: { label: string; to: string }[] = [
   { label: "Home", to: "/" },
   { label: "Tool", to: "/tool" },
-  { label: "Blog", to: "/blog" },
   { label: "Tutorial", to: "/tutorial" },
+  { label: "Blog", to: "/blog" },
 ];
 
 export default function NavBar() {

@@ -134,8 +134,8 @@ export default function Footer() {
           <p style={COL_HEADER_STYLE}>Navigate</p>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/tool">Tool</NavLink>
-          <NavLink to="/blog">Blog</NavLink>
           <NavLink to="/tutorial">Tutorial</NavLink>
+          <NavLink to="/blog">Blog</NavLink>
         </div>
 
         {/* Column 3 — Legal */}

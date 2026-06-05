@@ -10,7 +10,7 @@ export const howToStepsMobile = [
   },
   {
     title: 'Accounts Center',
-    text: 'Scroll and tap Accounts Center.'
+    text: 'Tap Accounts Center.'
   },
   {
     title: 'Your Info & Permissions',
@@ -24,72 +24,93 @@ export const howToStepsMobile = [
     title: 'Create Export',
     text: 'Tap Create export.'
   },
+  { title: 'Choose a Profile', text: 'Select the profile you want to export data from.' },
   {
     title: 'Export to Device',
     text: 'Choose Export to device.'
   },
   {
     title: 'Set Range & Format',
-    text: 'Set Range to All time, Format to JSON, then confirm.'
+    text: 'Set Range to All time, Format to JSON'
+  },
+  {
+    title: 'Tap Customize Information',
+    text: 'Unslect all categories except "Followers and Following" to make the export take a few minutes instead of hours.'
   },
   {
     title: 'Start Export',
     text: 'Tap Start export to download.'
   },
   {
-    title: 'Wait for Instagram\'s Email',
-    text: 'Instagram will email you when your file is ready. *This can take 2-15 minutes. Once you receive it, download the file and upload it here to see who\'s fake!'
+    title: 'Enter your Password',
+    text: 'For security, Instagram may ask you to enter your password before starting the export.'
   },
   {
-    title: 'Bonus: Faster Download',
-    text: 'Select only "Followers and Following" for a faster download.'
-  }
-  
+    title: 'Wait for Instagram\'s Email',
+    text: 'Instagram will send you an email titled "Your Meta information download is ready" when your file is ready. *This can take 2-10 minutes.'
+  },
+  {
+    title: 'Download & Upload',
+    text: 'Once you receive the email, download the file and upload it here to see who\'s fake!'
+  },
+
 ];
 // This file maps the step images and text for the HowToSteps component
 export const howToSteps = [
   {
-    title: 'Open Instagram Settings',
-    text: 'Tap your profile picture, then tap the menu (☰) and choose Settings.'
+    title: 'Open Instagram App',
+    text: 'Tap your profile icon in the bottom right.'
   },
   {
-    title: 'Go to Settings and privacy',
-    text: 'In the menu, select Settings and privacy.'
+    title: 'Go to Settings',
+    text: 'Tap the menu (☰) and select Settings.'
   },
   {
-    title: 'See more in Accounts Center',
-    text: 'Scroll down and tap See more in Accounts Center.'
+    title: 'Go to your Accounts Center',
+    text: 'Click See more in Accounts Center.'
   },
   {
     title: 'Your information and permissions',
-    text: 'In Accounts Center, tap Your information and permissions.'
+    text: 'In Accounts Center, click Your information and permissions.'
   },
   {
     title: 'Export your information',
-    text: 'Tap Export your information.'
+    text: 'Click Export your information.'
   },
   {
     title: 'Create Export',
-    text: 'Tap Create export to start the process.'
+    text: 'Click Create export to start the process.'
   },
   {
-    title: 'Export to device',
+    title: 'Choose a Profile',
+    text: 'Select the profile you want to export data from.'
+  },
+  {
+    title: 'Export to Device',
     text: 'Choose Export to device.'
   },
   {
     title: 'Select Range and Format',
-    text: 'Set Range to All time and Format to JSON, then confirm.'
+    text: 'Set Range to All time and Format to JSON. Make sure to click Save.'
+  },
+  {
+    title: 'Customize Information',
+    text: 'Unselect all categories except "Followers and Following" to make the export take a few minutes instead of hours.'
   },
   {
     title: 'Start Export',
-    text: 'Tap Start export to begin downloading your data.'
+    text: 'Click Start export to begin downloading your data.'
+  },
+  {
+    title: 'Enter your Password',
+    text: 'For security, Instagram may ask you to enter your password before starting the export.'
   },
   {
     title: 'Wait for Instagram\'s Email',
-    text: 'Instagram will email you when your file is ready. This can take 2-15 minutes. Once you receive it, download the file and upload it here to see who\'s fake!'
+    text: 'Instagram will send you an email titled "Your Meta information download is ready" when your file is ready. *This can take 2-10 minutes.'
   },
   {
-    title: 'Bonus: Faster Download',
-    text: 'Want a faster download? Only select "Followers and Following" in the info selection screen. Need help? Watch our tutorial!'
-  }
+    title: 'Download & Upload',
+    text: 'Once you receive the email, download the file and upload it here to see who\'s fake!'
+  },
 ];
