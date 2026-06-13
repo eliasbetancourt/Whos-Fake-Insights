@@ -36,7 +36,7 @@ export default function Tutorial() {
           style={{
             maxWidth: 1100,
             margin: "0 auto",
-            padding: "clamp(36px, 6vh, 64px) clamp(16px, 4vw, 32px) 64px",
+            padding: "clamp(112px, 15vh, 140px) clamp(16px, 4vw, 32px) 160px",
             width: "100%",
             boxSizing: "border-box",
           }}

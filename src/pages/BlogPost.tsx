@@ -66,7 +66,7 @@ export default function BlogPost() {
           style={{
             maxWidth: 720,
             margin: "0 auto",
-            padding: "clamp(48px, 10vh, 100px) clamp(16px, 4vw, 32px)",
+            padding: "clamp(112px, 15vh, 140px) clamp(16px, 4vw, 32px) clamp(160px, 16vh, 192px)",
             textAlign: "center",
           }}
         >
@@ -147,7 +147,7 @@ export default function BlogPost() {
         style={{
           maxWidth: 720,
           margin: "0 auto",
-          padding: "clamp(28px, 5vh, 56px) clamp(16px, 4vw, 28px) clamp(24px, 4vh, 48px)",
+          padding: "clamp(112px, 15vh, 140px) clamp(16px, 4vw, 28px) clamp(160px, 16vh, 192px)",
           width: "100%",
           boxSizing: "border-box",
         }}

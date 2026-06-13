@@ -380,6 +380,41 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results, showNotice = false
           </tbody>
         </table>
       </div>
+      {showNotice && (
+        <div
+          style={{
+            marginTop: "2rem",
+            textAlign: "center",
+            padding: "16px 20px",
+            background: "#faf8ff",
+            border: "1px solid #e0e7ff",
+            borderRadius: 12,
+          }}
+        >
+          <span style={{ color: "#6b7280", fontSize: "0.9rem" }}>
+            Found this useful? You can support the project{" "}
+          </span>
+          <a
+            href="https://buymeacoffee.com/whosfakeinsights"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              marginLeft: 6,
+              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              color: "#ffffff",
+              textDecoration: "none",
+              fontWeight: 700,
+              fontSize: "0.85rem",
+              padding: "5px 14px",
+              borderRadius: 8,
+              verticalAlign: "middle",
+            }}
+          >
+            ☕ Buy Me a Coffee
+          </a>
+        </div>
+      )}
     </div>
   );
 };

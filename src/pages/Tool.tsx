@@ -710,7 +710,7 @@ export default function Tool() {
           style={{
             maxWidth: 1200,
             margin: "0 auto",
-            padding: "2vw",
+            padding: "clamp(112px, 12vw, 140px) 2vw 160px",
             width: "100%",
             boxSizing: "border-box",
             minHeight: "100vh",
@@ -745,7 +745,7 @@ export default function Tool() {
               </div>
             </div>
           )}
-          <div style={{ textAlign: "center", marginBottom: "2vw", paddingTop: "3vw" }}>
+          <div style={{ textAlign: "center", marginBottom: "2vw" }}>
             <h1
               style={{
                 color: "white",

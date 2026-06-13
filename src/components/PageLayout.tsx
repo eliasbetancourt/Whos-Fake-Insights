@@ -33,7 +33,7 @@ export default function PageLayout({ title, children }: PageLayoutProps) {
         style={{
           background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
           width: "100%",
-          padding: "4vw 0 6vw",
+          padding: "4vw 0 clamp(160px, 16vw, 192px)",
         }}
       >
         <div

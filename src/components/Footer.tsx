@@ -127,6 +127,11 @@ export default function Footer() {
           <ExtLink href="https://instagram.com/whosfakeinsights">
             @whosfakeinsights
           </ExtLink>
+          <div style={{ marginTop: 12 }}>
+            <ExtLink href="https://buymeacoffee.com/whosfakeinsights">
+              ☕ Support this project
+            </ExtLink>
+          </div>
         </div>
 
         {/* Column 2 — Navigate */}

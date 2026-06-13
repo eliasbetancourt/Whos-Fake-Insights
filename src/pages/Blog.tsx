@@ -36,7 +36,7 @@ export default function Blog() {
         style={{
           maxWidth: 1100,
           margin: "0 auto",
-          padding: "clamp(40px, 7vh, 72px) clamp(16px, 4vw, 32px) clamp(40px, 7vh, 80px)",
+          padding: "clamp(112px, 15vh, 140px) clamp(16px, 4vw, 32px) clamp(160px, 16vh, 192px)",
           width: "100%",
           boxSizing: "border-box",
         }}
