@@ -3,6 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV9SS9X2N8"></script>
+  <script src="/gtag-init.js"></script>
   <!--
       Content Security Policy (CSP) — defense-in-depth against XSS, clickjacking,
       and unwanted third-party content. Aligned with NIST SP 800-53 SC-18
@@ -38,7 +41,7 @@
         upgrade-insecure-requests  Auto-upgrade any stray http:// reference.
     -->
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' https://pagead2.googlesyndication.com https://adservice.google.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com https://*.ytimg.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net; font-src 'self'; connect-src 'self' https://pagead2.googlesyndication.com https://adservice.google.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
+    content="default-src 'self'; script-src 'self' https://pagead2.googlesyndication.com https://adservice.google.com https://googleads.g.doubleclick.net https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com https://*.ytimg.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://www.google-analytics.com; font-src 'self'; connect-src 'self' https://pagead2.googlesyndication.com https://adservice.google.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
   <!-- Send minimal referrer information cross-origin (NIST SC-7 / privacy). -->
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <!-- Restrict powerful browser APIs we do not need. -->
